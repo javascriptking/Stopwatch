@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stopwatch</title>
+	<style type="text/css">
+		.Kasten {
+			  margin-top: 200px;
+			  width: 330px;
+              border:  3px solid royalblue;
+              border-radius: 500px;
+              padding: 2em;
+              background-color: lightskyblue;
+			}
+			button {
+				background-color: lightskyblue;
+				border-radius: 10px;
+				border: 3px solid royalblue;
+			}
+			body {
+				background-color: floralwhite;
+			}
+	</style>
+</head>
+<body>
+<center>
+<h1>Stopwatch</h1>
+<div class="Kasten">
+<h1 id="watch">0.00.00 hours</h1>
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stop</button>
+</div></center>
+<script type="text/javascript">
+  var second = 0;
+	var minute = 0;
+	var hour = 0;
+	var finish;
+	var interval;
+	function start() {
+		 interval = setInterval(timeplus, 1000);
+	}function stop() {
+      clearInterval(interval);
+  }function timeplus() {
+	    second++;
+    	if (second <= 9) {
+
+    		  if (minute <= 9) {
+    		  finish = (hour + ".0" + minute + ".0" + second + " hours");
+    	}
+    	if (minute >= 10) {
+    		  finish = (hour + "." + minute + ".0" + second + " hours");
+    	}
+    	}if (second >= 10) {;
+
+    		   if (minute <= 9) {
+    		  finish = (hour + ".0" + minute + "." + second + " hours");
+    	}if (minute >= 10) {
+    		  finish = (hour + "." + minute + "." + second + " hours");
+    	}
+    	}if (second == 59) {
+        	minute++;
+        	second = -1;
+      }if (minute == 60) {
+        hour++;
+        minute = 0;
+      }
+    	document.getElementById('watch').innerHTML = finish;
+    }
+</script>
+</body>
+</html>
