@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cookie Clicker</title>
+	<style type="text/css">
+		body {
+			background-color: rosybrown;
+		}
+		button {
+			background-color: rosybrown;
+			border: 2px solid saddlebrown;
+            border-radius: 24px;
+		}
+		.Kasten {
+			  margin-top: 200px;
+			  width: 330px;
+              border:  3px solid saddlebrown;
+              border-radius: 100px;
+              padding: 2em;
+              background-color: rosybrown;
+			}
+	</style>
+</head>
+<body>
+<center>
+<div class="Kasten">
+<h1>Cookie Clicker</h1>
+<div onclick="cookieclick()">
+            <img src="https://media.giphy.com/media/l0u0eiVkW4x0Y/200.gif" width="200px"/>
+</div>
+<h2 id="click">0</h2>
+<button onclick="deleteclicks()">Delete Clicks!</button><br>
+<p></p>
+<button onclick="buy()">Buy Cookie clicker machine! Price: 100 clicks</button>
+</div>
+</center>
+<script type="text/javascript">
+	var clicks = 0;
+	var finish = clicks;
+	function cookieclick() {
+       clicks++;
+       finish = clicks;
+       document.getElementById('click').innerHTML = finish;
+
+	}
+	function deleteclicks() {
+		clicks = 0;
+		finish = clicks;
+		document.getElementById('click').innerHTML = finish;
+	}
+    function buy() {
+    	if(clicks >= 100) {
+    		setInterval(machinestart, 100);
+    	    finish = (clicks  - 100);
+    	    document.getElementById('click').innerHTML = finish;
+    	}
+    	else {
+    		alert("You don´t have 100 clicks");
+    	}
+    }
+    function machinestart() {
+    	finish++;
+    	document.getElementById('click').innerHTML = finish;
+
+    }
+</script>
+</body>
+</html>
